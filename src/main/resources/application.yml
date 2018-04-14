@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/stock?useSSL=false
+    username: test1
+    password: teset1
+    driver-class-name: com.mysql.jdbc.Driver
+
+#    # druidDataSource Config
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+
+    poolPreparedStatements: true
+##   filters，essential part，'wall' for firewall
+    filters: stat
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+#mybatis
+mybatis:
+  type-aliases-package: com.maolintu.matisplusjpa.model
+  mapper-locations: classpath:mapper/*.xml
