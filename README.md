@@ -34,3 +34,4 @@ A empty project configured with Mybatis, JPA, MySQL
 2. Add `@MapperScan("com.maolintu.matisplusjpa.mapper")` annotation in Entry Class
 
 
+### Using `http://localhost:8080/druid` to monitor SQL server
